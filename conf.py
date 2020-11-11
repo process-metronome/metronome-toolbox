@@ -29,7 +29,6 @@ release = u''
 
 
 # -- General configuration ---------------------------------------------------
-
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
@@ -63,7 +62,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', '*.md', u'venv']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None

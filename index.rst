@@ -16,7 +16,8 @@ Welcome to Metronome's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Developer
-   
+
+   doc/windows
    doc/wsl2
 
 Indices and tables
