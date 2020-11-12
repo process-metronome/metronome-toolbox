@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kubernetes environment &mdash; Metronome  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Digital Ocean Resources" href="digitalocean.html" />
+    <link rel="prev" title="Welcome to Metronome’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Metronome
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kubernetes environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cluster-and-resource-management">Cluster and resource management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#certificates">Certificates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="digitalocean.html">Digital Ocean Resources</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="windows.html">Windows Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wsl2.html">Windows Subsystem for Linux</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Metronome</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Kubernetes environment</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/doc/kubernetes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kubernetes-environment">
+<h1>Kubernetes environment<a class="headerlink" href="#kubernetes-environment" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cluster-and-resource-management">
+<h2>Cluster and resource management<a class="headerlink" href="#cluster-and-resource-management" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://kubernetes.io/fr/docs/tasks/tools/install-kubectl/">Install kubectl</a> utility on your linux machine.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y apt-transport-https
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> sudo apt-key add -
+$ <span class="nb">echo</span> <span class="s2">&quot;deb https://apt.kubernetes.io/ kubernetes-xenial main&quot;</span> <span class="p">|</span> sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+$ sudo apt-get update
+$ sudo apt-get install -y kubectl
+</pre></div>
+</div>
+</div>
+<div class="section" id="certificates">
+<h2>Certificates<a class="headerlink" href="#certificates" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://cert-manager.io/docs/usage/kubectl-plugin/">Install the cert-manager plugin</a> to manage your certificates in the cluster.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -L -o kubectl-cert-manager.tar.gz https://github.com/jetstack/cert-manager/releases/download/v1.0.1/kubectl-cert_manager-linux-amd64.tar.gz
+$ tar xzf kubectl-cert-manager.tar.gz
+$ sudo mv kubectl-cert_manager /usr/local/bin
+</pre></div>
+</div>
+<p>Renew certificates as they expire with the CLI. Usually you are notified about the expiration of a certificate by email (when using letsencrypt.org)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ kubectl get certificate
+NAME                       READY   SECRET               AGE
+example-com-tls            True    example-com-tls      1d
+
+$ kubectl cert-manager renew example-com-tls
+Manually triggered issuance of Certificate default/example-com-tls
+
+$ kubectl get certificaterequest
+NAME                              READY   AGE
+example-com-tls-tls-8rbv2         False    10s
+</pre></div>
+</div>
+<p>Renew all certificates in a given namespace.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ kubectl cert-manager renew --namespace<span class="o">=</span>app --all
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="digitalocean.html" class="btn btn-neutral float-right" title="Digital Ocean Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Metronome’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Frédéric Husser
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
