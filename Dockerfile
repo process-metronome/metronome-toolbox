@@ -7,4 +7,5 @@ COPY . .
 RUN make html
 
 FROM nginx:alpine
-COPY --from=build  /app/_build/html /usr/share/nginx/html/
+COPY nginx-toolbox.conf /etc/nginx/conf.d/
+COPY --from=build  /app/dist/html /usr/share/nginx/html/
