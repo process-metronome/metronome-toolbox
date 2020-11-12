@@ -7,5 +7,6 @@ COPY . .
 RUN make html
 
 FROM nginx:alpine
+RUN apk --no-cache add ca-certificates
 COPY nginx-toolbox.conf /etc/nginx/conf.d/
 COPY --from=build  /app/dist/html /usr/share/nginx/html/
